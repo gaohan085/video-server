@@ -1,21 +1,100 @@
 {
   "private": true,
   "scripts": {
-    "dev": "next",
+    "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "prepare": "husky install"
   },
   "dependencies": {
-    "next": "latest",
+    "@reduxjs/toolkit": "^1.9.1",
+    "axios": "^1.2.3",
+    "next": "^13.1.2",
+    "plyr-react": "^5.1.2",
+    "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "styled-components": "^5.3.5"
+    "react-is": "^18.2.0",
+    "react-redux": "^8.0.5",
+    "redux": "^4.2.0",
+    "styled-components": "^5.3.5",
+    "swr": "^2.0.0"
   },
   "devDependencies": {
     "@types/node": "^18.0.0",
     "@types/react": "^18.0.14",
     "@types/react-dom": "^18.0.5",
     "@types/styled-components": "^5.1.25",
+    "eslint": "^8.32.0",
+    "eslint-config-next": "^13.1.2",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.1.0",
+    "prettier": "^2.8.3",
     "typescript": "^4.7.4"
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "es2021": true
+    },
+    "extends": [
+      "eslint:recommended",
+      "next"
+    ],
+    "parserOptions": {
+      "ecmaVersion": "latest",
+      "sourceType": "module",
+      "project": [
+        "./tsconfig.json"
+      ]
+    },
+    "rules": {
+      "quotes": [
+        "warn",
+        "single"
+      ],
+      "sort-imports": [
+        "error",
+        {
+          "ignoreCase": false,
+          "ignoreDeclarationSort": false,
+          "ignoreMemberSort": false,
+          "memberSyntaxSortOrder": [
+            "none",
+            "all",
+            "multiple",
+            "single"
+          ],
+          "allowSeparatedGroups": false
+        }
+      ]
+    }
+  },
+  "eslintIgnore": [
+    "node_modules",
+    ".dist",
+    ".next",
+    "**/__test__/**",
+    "**/test/**"
+  ],
+  "lint-staged": {
+    "*.{json,css,md,cjs}": [
+      "prettier --write"
+    ],
+    "*.{ts,js,tsx,jsx}": [
+      "prettier --write"
+    ],
+    "*.spec.ts": "prettier --write"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "arrowParens": "always",
+    "printWidth": 120,
+    "tabWidth": 2,
+    "semi": true,
+    "useTabs": false
+  },
+  "resolutions": {
+    "styled-components": "^5"
   }
 }
