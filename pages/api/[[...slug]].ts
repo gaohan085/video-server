@@ -40,8 +40,10 @@ export default async function handler(
           isFolder: dirent.isDirectory(),
           extName: extname(dirent.name),
           playSrc:
-            extname(dirent.name) === ".mp4"
+            extname(dirent.name) === ".mp4" && !pathArray
               ? nginxServeAddress + dirent.name
+              : extname(dirent.name) === ".mp4" && pathArray
+              ? nginxServeAddress + pathArray.join("/") + "/" + dirent.name
               : "",
         });
       }
