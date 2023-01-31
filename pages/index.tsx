@@ -1,6 +1,8 @@
 import FileSys from "../components/fileSystemComponents/folder";
+import Head from "next/head";
 import Player from "../components/plyr";
 import styled from "styled-components";
+import { selectPlaySrc, useAppSelector } from "../src/store";
 
 const Layout = styled.div`
   display: flex;
@@ -8,10 +10,16 @@ const Layout = styled.div`
 `;
 
 export default function Index() {
+  const playSrc = useAppSelector(selectPlaySrc);
   return (
-    <Layout>
-      <Player />
-      <FileSys />
-    </Layout>
+    <>
+      <Head>
+        <title>Now Playing:{playSrc.slice(playSrc.lastIndexOf("/") + 1)}</title>
+      </Head>
+      <Layout>
+        <Player />
+        <FileSys />
+      </Layout>
+    </>
   );
 }
