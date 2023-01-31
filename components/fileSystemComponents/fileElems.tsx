@@ -1,4 +1,4 @@
-import { DirectoryChildElem } from "../../src/getChildDIr";
+import { DirectoryChildElem } from "../../pages/api/[[...slug]]";
 import { setCurrentPath, setPlaySrc, useAppDispatch } from "../../src/store";
 
 interface FileProps extends DirectoryChildElem {
@@ -13,7 +13,8 @@ export default function FileElems(props: FileProps) {
       dispatch(setPlaySrc(props.playSrc));
     }
     if (props.isFolder) {
-      dispatch(setCurrentPath(props.currentPath + props.name + "/"));
+      const currentPath = props.currentPath === "/" ? "" : props.currentPath;
+      dispatch(setCurrentPath(currentPath + props.name + "/"));
     }
   };
 

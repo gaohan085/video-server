@@ -31,14 +31,6 @@ export const counterSlice = createSlice({
       state.playSource = "";
     },
 
-    setShouldFetch: (state) => {
-      state.shouldFetch = true;
-    },
-
-    unSetShouldFetch: (state) => {
-      state.shouldFetch = false;
-    },
-
     setCurrentPath: (state, action: PayloadAction<string>) => {
       state.currentPath = action.payload;
     },
@@ -49,14 +41,8 @@ export const counterSlice = createSlice({
   },
 });
 
-export const {
-  setPlaySrc,
-  unSetPlaySrc,
-  setShouldFetch,
-  unSetShouldFetch,
-  setCurrentPath,
-  unSetCurrentPath,
-} = counterSlice.actions;
+export const { setPlaySrc, unSetPlaySrc, setCurrentPath, unSetCurrentPath } =
+  counterSlice.actions;
 
 export function makeStore() {
   return configureStore({
