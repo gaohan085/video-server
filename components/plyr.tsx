@@ -18,12 +18,19 @@ const Video = styled.div`
   width: 80%;
   .videoBox {
     padding: 50px;
+    max-height: 800px;
+
+    p {
+      color: #00b2ff;
+      font-size: 17px;
+      font-weight: 800;
+    }
   }
 `;
 
 export default function Player() {
   const ref = useRef<APITypes>(null);
-  const PlaySrc = useAppSelector(selectPlaySrc);
+  const playSrc = useAppSelector(selectPlaySrc);
   return (
     <Video>
       <div className="videoBox">
@@ -33,12 +40,13 @@ export default function Player() {
             type: "video",
             sources: [
               {
-                src: PlaySrc,
+                src: playSrc,
               },
             ],
           }}
           options={{ autoplay: true }}
         />
+        <p>Now Playing: {playSrc.slice(playSrc.lastIndexOf("/") + 1)}</p>
       </div>
     </Video>
   );
