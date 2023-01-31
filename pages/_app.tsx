@@ -1,15 +1,20 @@
-import type { AppProps } from 'next/app';
-import { ThemeProvider, DefaultTheme } from 'styled-components';
-import GlobalStyle from '../components/globalstyles';
-import { Provider } from 'react-redux';
-import { store } from './shopping';
+import type { AppProps } from "next/app";
+import GlobalStyle from "../components/globalstyles";
+import localFont from "@next/font/local";
+import { Provider } from "react-redux";
+import store from "../src/store";
+import { DefaultTheme, ThemeProvider } from "styled-components";
 
 const theme: DefaultTheme = {
   colors: {
-    primary: '#111',
-    secondary: '#0070f3',
+    primary: "#111",
+    secondary: "#0070f3",
   },
 };
+
+const myfont = localFont({
+  src: "../public/Proxima Nova Font.otf",
+});
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -17,7 +22,9 @@ export default function App({ Component, pageProps }: AppProps) {
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <Provider store={store}>
-          <Component {...pageProps} />
+          <main className={myfont.className}>
+            <Component {...pageProps} />
+          </main>
         </Provider>
       </ThemeProvider>
     </>
