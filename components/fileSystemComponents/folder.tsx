@@ -62,6 +62,9 @@ export default function FileSys() {
                 onClick={() => {
                   dispatch(setCurrentPath(data.parentFolder));
                 }}
+                style={{
+                  cursor: "pointer",
+                }}
               >
                 <th>../</th>
               </tr>
