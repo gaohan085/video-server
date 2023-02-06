@@ -11,6 +11,7 @@ specifiers:
   '@types/react-dom': ^18.0.10
   '@types/styled-components': ^5.1.26
   axios: ^1.2.6
+  check-disk-space: ^3.3.1
   eslint: ^8.33.0
   eslint-config-next: ^13.1.6
   eslint-plugin-import: ^2.27.5
@@ -33,6 +34,7 @@ dependencies:
   '@next/font': 13.1.6
   '@reduxjs/toolkit': 1.9.2_k4ae6lp43ej6mezo3ztvx6pykq
   axios: 1.2.6
+  check-disk-space: 3.3.1
   next: 13.1.6_biqbaboplfbrettd7655fr4n2y
   plyr-react: 5.1.2_react@18.2.0
   prop-types: 15.8.1
@@ -802,6 +804,11 @@ packages:
       ansi-styles: 4.3.0
       supports-color: 7.2.0
     dev: true
+
+  /check-disk-space/3.3.1:
+    resolution: {integrity: sha512-iOrT8yCZjSnyNZ43476FE2rnssvgw5hnuwOM0hm8Nj1qa0v4ieUUEbCyxxsEliaoDUb/75yCOL71zkDiDBLbMQ==}
+    engines: {node: '>=12'}
+    dev: false
 
   /clean-stack/2.2.0:
     resolution: {integrity: sha512-4diC9HaTE+KRAMWhDhrGOECgWZxoevMc5TlkObMqNSsVU62PYzXZ/SMTjzyGAFF1YusgxGcSWTEXBhp0CPwQ1A==}
