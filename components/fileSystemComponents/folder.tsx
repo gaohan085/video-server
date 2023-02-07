@@ -68,18 +68,22 @@ export default function FileSys() {
               >
                 <th>../</th>
               </tr>
-              {data.childElem.map((elem) => (
-                <FileElems
-                  key={data.childElem.indexOf(elem)}
-                  currentPath={data.currentPath}
-                  name={elem.name}
-                  parentPath={data.parentFolder}
-                  isFile={elem.isFile}
-                  isFolder={elem.isFolder}
-                  playSrc={elem.playSrc}
-                  extName={elem.extName}
-                />
-              ))}
+              {data.childElem
+                .filter((elem) => elem.extName === ".mp4" || elem.isFolder) // filter files not with '.mp4' format
+                .map((elem) => {
+                  return (
+                    <FileElems
+                      key={data.childElem.indexOf(elem)}
+                      currentPath={data.currentPath}
+                      name={elem.name}
+                      parentPath={data.parentFolder}
+                      isFile={elem.isFile}
+                      isFolder={elem.isFolder}
+                      playSrc={elem.playSrc}
+                      extName={elem.extName}
+                    />
+                  );
+                })}
             </tbody>
           </table>
         </>
