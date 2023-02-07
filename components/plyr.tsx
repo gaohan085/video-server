@@ -44,7 +44,7 @@ export default function Player() {
               },
             ],
           }}
-          options={{ autoplay: true }}
+          options={{ autoplay: true, clickToPlay: true }} //Set initinal player status as pause
         />
         <p>Now Playing: {playSrc.slice(playSrc.lastIndexOf("/") + 1)}</p>
       </div>

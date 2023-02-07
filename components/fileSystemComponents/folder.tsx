@@ -1,8 +1,10 @@
+import DiskUsage from "./diskUsage";
 import { fetcher } from "../../src/hooks";
 import FileElems from "./fileElems";
 import type { Folder } from "../../pages/api/[[...slug]]";
 import styled from "styled-components";
 import useSWR from "swr";
+import useWindowDimensions from "../../src/useWindowDimensions";
 import {
   selectCurrentPath,
   setCurrentPath,
@@ -10,12 +12,16 @@ import {
   useAppSelector,
 } from "../../src/store";
 
-const StyledFolder = styled.div`
+const StyledFolder = styled.div<{ height: number | null }>`
   margin-top: 45px;
   width: 20%;
   color: #00b2ff;
   font-weight: normal;
   min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: ${(props) => props.height - 205 + "px"};
   table {
     width: 70%;
     /* margin: auto; */
@@ -43,8 +49,9 @@ export default function FileSys() {
     fetcher,
     { refreshInterval: 50000 }
   );
+  const { height } = useWindowDimensions();
   return (
-    <StyledFolder>
+    <StyledFolder height={height}>
       {isLoading ? (
         <>Loading</>
       ) : error ? (
@@ -88,6 +95,7 @@ export default function FileSys() {
           </table>
         </>
       )}
+      <DiskUsage />
     </StyledFolder>
   );
 }
