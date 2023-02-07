@@ -25,9 +25,10 @@ export default function DiskUsage() {
       ) : (
         <>
           {`
-          Disk Usage : ${(data.free / (1024 * 1024 * 1024 * 8)).toFixed(
-            1
-          )} GB/ ${(data.size / (1024 * 1024 * 1024 * 8)).toFixed(1)} GB
+          Disk Usage : ${(data.free / (1024 * 1024 * 1024)).toFixed(1)} GB/ ${(
+            data.size /
+            (1024 * 1024 * 1024)
+          ).toFixed(1)} GB
         `}
         </>
       )}
