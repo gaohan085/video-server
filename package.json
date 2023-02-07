@@ -6,7 +6,7 @@
     "start": "next start",
     "prepare": "husky install",
     "lint": "next lint",
-    "deploy": "git pull && next build && next start"
+    "deploy": "git pull && pnpm i &&next build && next start"
   },
   "dependencies": {
     "@next/font": "^13.1.6",
