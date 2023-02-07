@@ -38,7 +38,7 @@ export default async function handler(
           name: dirent.name,
           isFile: dirent.isFile(),
           isFolder: dirent.isDirectory(),
-          extName: extname(dirent.name),
+          extName: dirent.isDirectory() ? "" : extname(dirent.name), //[o] if dirent is folder, should not contain extname
           playSrc:
             extname(dirent.name) === ".mp4" && !pathArray
               ? nginxServeAddress + dirent.name

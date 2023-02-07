@@ -11,10 +11,11 @@ const Layout = styled.div`
 
 export default function Index() {
   const playSrc = useAppSelector(selectPlaySrc);
+  const title = `Now Playing : ${playSrc.slice(playSrc.lastIndexOf("/") + 1)}`;
   return (
     <>
       <Head>
-        <title>Now Playing:{playSrc.slice(playSrc.lastIndexOf("/") + 1)}</title>
+        <title>{title}</title>
       </Head>
       <Layout>
         <Player />

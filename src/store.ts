@@ -9,13 +9,11 @@ import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 
 export interface CounterState {
   playSource: string;
-  shouldFetch: boolean;
   currentPath: string;
 }
 
 const initialState: CounterState = {
   playSource: "",
-  shouldFetch: true,
   currentPath: "",
 };
 
@@ -62,7 +60,6 @@ export type AppThunk<ReturnType = void> = ThunkAction<
 >;
 
 export const selectPlaySrc = (state: AppState) => state.counter.playSource;
-export const selectShouldFetch = (state: AppState) => state.counter.shouldFetch;
 export const selectCurrentPath = (state: AppState) => state.counter.currentPath;
 
 export const useAppDispatch = () => useDispatch<AppDispatch>();
