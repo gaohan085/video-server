@@ -13,7 +13,7 @@ const theme: DefaultTheme = {
 };
 
 const myfont = localFont({
-  src: "../public/Proxima Nova Font.otf",
+  src: "../public/NotoSansJP-Regular.otf",
 });
 
 export default function App({ Component, pageProps }: AppProps) {
