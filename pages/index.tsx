@@ -7,6 +7,10 @@ import { selectPlaySrc, useAppSelector } from "../src/store";
 const Layout = styled.div`
   display: flex;
   height: 100%;
+  max-width: 1560px;
+  min-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
 `;
 
 export default function Index() {

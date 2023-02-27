@@ -10,21 +10,20 @@ const Plyr = forwardRef(function Player(props: PlyrProps, ref: Ref<APITypes>) {
     source,
     options,
   });
-
   return <video ref={raptorRef} className="plyr-react plyr" {...rest} />;
 });
 
 const Video = styled.div`
-  width: 80%;
-  .videoBox {
-    padding: 50px;
-    max-height: 800px;
+  width: 75%;
+  margin: 40px;
+  padding: 20px;
+  padding-top: 0px;
+  border-right: 1px solid #e2e2e2;
 
-    p {
-      color: #00b2ff;
-      font-size: 17px;
-      font-weight: 800;
-    }
+  p {
+    color: #00b2ff;
+    font-size: 17px;
+    font-weight: 800;
   }
 `;
 
@@ -33,21 +32,35 @@ export default function Player() {
   const playSrc = useAppSelector(selectPlaySrc);
   return (
     <Video>
-      <div className="videoBox">
-        <Plyr
-          ref={ref}
-          source={{
-            type: "video",
-            sources: [
-              {
-                src: playSrc,
-              },
-            ],
-          }}
-          options={{ autoplay: true, clickToPlay: true }} //Set initinal player status as pause
-        />
-        <p>Now Playing: {playSrc.slice(playSrc.lastIndexOf("/") + 1)}</p>
-      </div>
+      <Plyr
+        ref={ref}
+        source={{
+          type: "video",
+          sources: [
+            {
+              src: playSrc,
+            },
+          ],
+        }}
+        options={{
+          autoplay: true,
+          clickToPlay: true,
+          controls: [
+            "play-large",
+            "play",
+            "progress",
+            "current-time",
+            "duration",
+            "mute",
+            "volume",
+            "captions",
+            "settings",
+            "fullscreen",
+          ],
+          ratio: "16:9",
+        }} //Set initinal player status as pause
+      />
+      <p>Now Playing: {playSrc.slice(playSrc.lastIndexOf("/") + 1)}</p>
     </Video>
   );
 }
