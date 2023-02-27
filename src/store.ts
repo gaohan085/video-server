@@ -19,7 +19,7 @@ const initialState: CounterState = {
 
 export const counterSlice = createSlice({
   name: "counter",
-  initialState,
+  initialState: initialState,
   reducers: {
     setPlaySrc: (state, action: PayloadAction<string>) => {
       state.playSource = action.payload;

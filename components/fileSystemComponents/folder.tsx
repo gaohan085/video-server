@@ -77,10 +77,10 @@ export default function FileSys() {
               </tr>
               {data.childElem
                 .filter((elem) => elem.extName === ".mp4" || elem.isFolder) // filter files not with '.mp4' format
-                .map((elem) => {
+                .map((elem, index) => {
                   return (
                     <FileElems
-                      key={data.childElem.indexOf(elem)}
+                      key={index}
                       currentPath={data.currentPath}
                       name={elem.name}
                       parentPath={data.parentFolder}
