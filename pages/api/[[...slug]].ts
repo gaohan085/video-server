@@ -2,17 +2,18 @@ import { extname } from "path";
 import { lstat, opendir } from "fs/promises";
 import { NextApiRequest, NextApiResponse } from "next";
 
-export interface DirectoryChildElem {
+export interface DirChildElem {
   name: string;
   isFile: boolean;
   isFolder: boolean;
   extName: string;
   playSrc?: string;
+  currentPath: string; //relative path
 }
 export interface Folder {
   parentFolder: string; //relative path
   currentPath: string; //relative path
-  childElem: DirectoryChildElem[];
+  childElem: DirChildElem[];
 }
 
 export default async function handler(
@@ -32,7 +33,7 @@ export default async function handler(
       const dir = !pathArray
         ? await opendir(basicPath)
         : await opendir(basicPath + pathArray.join("/"));
-      let dirents: DirectoryChildElem[] = [];
+      let dirents: DirChildElem[] = [];
       for await (const dirent of dir) {
         dirents.push({
           name: dirent.name,
@@ -45,6 +46,7 @@ export default async function handler(
               : extname(dirent.name) === ".mp4" && pathArray
               ? nginxServeAddress + pathArray.join("/") + "/" + dirent.name
               : "",
+          currentPath: !pathArray ? "/" : pathArray.join("/") + "/",
         });
       }
       res.json({
@@ -66,6 +68,7 @@ export default async function handler(
                 ? nginxServeAddress + pathArray.join("/")
                 : "",
             extName: extname(pathArray.join("/")),
+            currentPath: !pathArray ? "/" : pathArray.join("/") + "/",
           },
         ],
       });

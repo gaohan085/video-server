@@ -1,4 +1,4 @@
-import FileSys from "../components/fileSystemComponents/folder";
+import FileSysComp from "../components/FileSys/index";
 import Head from "next/head";
 import Player from "../components/plyr";
 import styled from "styled-components";
@@ -8,7 +8,7 @@ const Layout = styled.div`
   display: flex;
   height: 100%;
   max-width: 1560px;
-  min-width: 960px;
+  min-width: 1160px;
   margin-left: auto;
   margin-right: auto;
 `;
@@ -23,7 +23,7 @@ export default function Index() {
       </Head>
       <Layout>
         <Player />
-        <FileSys />
+        <FileSysComp />
       </Layout>
     </>
   );
