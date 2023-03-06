@@ -3,7 +3,7 @@ import { fetcher } from "../../src/hooks";
 import styled from "styled-components";
 import useSWR from "swr";
 import type { DirChildElem, Folder } from "../../pages/api/[[...slug]]";
-import { FcFile, FcFolder, FcOpenedFolder } from "react-icons/fc";
+import { FcFolder, FcOpenedFolder, FcVideoFile } from "react-icons/fc";
 import React, { useEffect, useState } from "react";
 import { setPlaySrc, useAppDispatch } from "../../src/store";
 
@@ -17,7 +17,7 @@ export const FileElem: React.FC = (props: DirChildElem) => {
     <div className="file">
       <p onClick={handlePlayClick}>
         <span>
-          <FcFile />
+          <FcVideoFile />
         </span>
         {props.name}
       </p>
