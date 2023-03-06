@@ -63,13 +63,15 @@ export const FolderElem: React.FC = (props: DirChildElem) => {
 export const FileSys = (props: { elems: DirChildElem[] }) => {
   return (
     <>
-      {props.elems.map((elem, index) => {
-        return elem.isFile ? (
-          <FileElem key={index} {...elem} />
-        ) : (
-          <FolderElem key={index} {...elem} />
-        );
-      })}
+      {props.elems
+        .filter((elem) => elem.isFolder || elem.extName === ".mp4")
+        .map((elem, index) => {
+          return elem.isFile ? (
+            <FileElem key={index} {...elem} />
+          ) : (
+            <FolderElem key={index} {...elem} />
+          );
+        })}
     </>
   );
 };
