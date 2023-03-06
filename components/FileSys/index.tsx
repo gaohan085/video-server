@@ -44,7 +44,7 @@ export const FolderElem: React.FC = (props: DirChildElem) => {
   };
 
   return (
-    <div style={{ cursor: "pointer" }} className="folder">
+    <div className="folder">
       <p onClick={handleClick}>
         <span>{isOpen ? <FcOpenedFolder /> : <FcFolder />}</span>
         {props.name}
@@ -93,6 +93,7 @@ const StyledFileSysComp = styled.div`
     padding-left: 10px;
   }
   .folder > p {
+    cursor: pointer;
     margin-block-start: 0.15em;
     margin-block-end: 0.15em;
     white-space: nowrap;
@@ -107,6 +108,7 @@ const StyledFileSysComp = styled.div`
   }
 
   .file > p {
+    cursor: pointer;
     height: 20px;
     margin-block-start: 0.15em;
     margin-block-end: 0.15em;
