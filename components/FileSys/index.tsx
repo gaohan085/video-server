@@ -123,7 +123,7 @@ const SideBar = styled.div`
   flex-direction: column;
   justify-content: space-between;
   color: #4096ff;
-  max-width: 300px;
+  max-width: 280px;
 `;
 
 /** CSS end */
