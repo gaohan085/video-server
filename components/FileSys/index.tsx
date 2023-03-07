@@ -81,12 +81,11 @@ export const FileSys = (props: { elems: DirChildElem[] }) => {
 const StyledFileSysComp = styled.div`
   display: flex;
   flex-direction: column;
-  overflow: hidden;
-  padding-top: 18px;
-
-  min-height: 900px;
+  overflow-y: auto;
+  overflow-x: hidden;
   color: #4096ff;
   font-size: 15px;
+  margin-bottom: 70px;
   .folder {
     display: flex;
     flex-direction: column;
@@ -127,7 +126,13 @@ const SideBar = styled.div`
   flex-direction: column;
   justify-content: space-between;
   color: #4096ff;
-  max-width: 280px;
+  width: 280px;
+  margin-top: 18px;
+  padding-left: 10px;
+  position: relative;
+  top: 0;
+  bottom: 0;
+  border-left: 1px solid #d3d3d3;
 `;
 
 /** CSS end */
@@ -150,7 +155,6 @@ const FileSysComp: React.FC = () => {
           </>
         )}
       </StyledFileSysComp>
-
       <DiskUsage />
     </SideBar>
   );

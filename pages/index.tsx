@@ -5,12 +5,13 @@ import styled from "styled-components";
 import { selectPlaySrc, useAppSelector } from "../src/store";
 
 const Layout = styled.div`
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   display: flex;
-  height: 100%;
-  max-width: 1560px;
-  min-width: 1160px;
-  margin-left: auto;
-  margin-right: auto;
+  justify-content: center;
 `;
 
 export default function Index() {
