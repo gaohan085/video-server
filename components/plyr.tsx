@@ -14,13 +14,11 @@ const Plyr = forwardRef(function Player(props: PlyrProps, ref: Ref<APITypes>) {
 });
 
 const Video = styled.div`
-  width: 75%;
+  width: 1129px;
   margin: 20px;
   margin-right: 5px;
   padding: 20px;
   padding-top: 0px;
-  border-right: 1px solid #e2e2e2;
-
   p {
     color: #00b2ff;
     font-size: 17px;
@@ -63,6 +61,7 @@ export default function Player() {
           ],
           ratio: "16:9",
           seekTime: 3,
+          blankVideo: "",
         }} //Set initinal player status as pause
       />
       <p>Now Playing: {playSrc.slice(playSrc.lastIndexOf("/") + 1)}</p>
