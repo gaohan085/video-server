@@ -99,7 +99,7 @@ const StyledFileSysComp = styled.div`
   }
   .folder > p > span {
     display: inline-block;
-    vertical-align: top;
+    vertical-align: middle;
     margin-right: 5px;
     font-size: 16px;
   }
@@ -116,7 +116,7 @@ const StyledFileSysComp = styled.div`
 
   .file > p > span {
     display: inline-block;
-    vertical-align: top;
+    vertical-align: middle;
     margin-right: 5px;
     font-size: 16px;
   }
