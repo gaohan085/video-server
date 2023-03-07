@@ -84,8 +84,8 @@ const StyledFileSysComp = styled.div`
   overflow-y: auto;
   overflow-x: hidden;
   color: #4096ff;
-  font-size: 15px;
   margin-bottom: 70px;
+  font-size: 14px;
   .folder {
     display: flex;
     flex-direction: column;
@@ -99,8 +99,9 @@ const StyledFileSysComp = styled.div`
   }
   .folder > p > span {
     display: inline-block;
-    vertical-align: middle;
-    margin-right: 3px;
+    vertical-align: top;
+    margin-right: 5px;
+    font-size: 16px;
   }
   .file {
     padding-left: 10px;
@@ -108,7 +109,6 @@ const StyledFileSysComp = styled.div`
 
   .file > p {
     cursor: pointer;
-    height: 20px;
     margin-block-start: 0.15em;
     margin-block-end: 0.15em;
     white-space: nowrap;
@@ -116,8 +116,9 @@ const StyledFileSysComp = styled.div`
 
   .file > p > span {
     display: inline-block;
-    vertical-align: middle;
-    margin-right: 3px;
+    vertical-align: top;
+    margin-right: 5px;
+    font-size: 16px;
   }
 `;
 
@@ -126,7 +127,7 @@ const SideBar = styled.div`
   flex-direction: column;
   justify-content: space-between;
   color: #4096ff;
-  width: 280px;
+  width: 250px;
   margin-top: 18px;
   padding-left: 10px;
   position: relative;
