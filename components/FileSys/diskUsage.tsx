@@ -1,6 +1,5 @@
 import { DiskSpace } from "check-disk-space";
 import { FcDatabase } from "react-icons/fc";
-import { fetcher } from "../../src/hooks";
 import styled from "styled-components";
 import useSWR from "swr";
 
@@ -18,13 +17,7 @@ const StyledDiskUsage = styled.div`
 `;
 
 export default function DiskUsage() {
-  const { data, isLoading, error } = useSWR<DiskSpace, Error>(
-    "/api/disk",
-    fetcher,
-    {
-      refreshInterval: 5000,
-    }
-  );
+  const { data, isLoading, error } = useSWR<DiskSpace, Error>("/api/disk");
   return (
     <StyledDiskUsage>
       {isLoading ? (

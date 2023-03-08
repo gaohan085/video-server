@@ -1,8 +1,10 @@
 import type { AppProps } from "next/app";
+import { fetcher } from "../src/hooks";
 import GlobalStyle from "../components/globalstyles";
 import localFont from "next/font/local";
 import { Provider } from "react-redux";
 import store from "../src/store";
+import { SWRConfig } from "swr";
 import { DefaultTheme, ThemeProvider } from "styled-components";
 
 const theme: DefaultTheme = {
@@ -23,7 +25,15 @@ export default function App({ Component, pageProps }: AppProps) {
         <GlobalStyle />
         <Provider store={store}>
           <main className={myfont.className}>
-            <Component {...pageProps} />
+            <SWRConfig
+              value={{
+                refreshInterval: 50000,
+                fetcher: fetcher,
+                revalidateOnFocus: false,
+              }}
+            >
+              <Component {...pageProps} />
+            </SWRConfig>
           </main>
         </Provider>
       </ThemeProvider>

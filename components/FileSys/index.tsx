@@ -139,9 +139,7 @@ const SideBar = styled.div`
 /** CSS end */
 
 const FileSysComp: React.FC = () => {
-  const { data, isLoading, error } = useSWR<Folder>("/api/", fetcher, {
-    refreshInterval: 50000,
-  });
+  const { data, isLoading, error } = useSWR<Folder>("/api/");
 
   return (
     <SideBar>
