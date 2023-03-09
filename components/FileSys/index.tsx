@@ -1,5 +1,4 @@
 import DiskUsage from "./diskUsage";
-import { fetcher } from "../../src/hooks";
 import Spinner from "../spinner";
 import styled from "styled-components";
 import useSWR from "swr";
