@@ -1,10 +1,13 @@
 import { DiskSpace } from "check-disk-space";
 import { FcDatabase } from "react-icons/fc";
+import Spinner from "../spinner";
 import styled from "styled-components";
 import useSWR from "swr";
 
 const StyledDiskUsage = styled.div`
+  display: flex;
   width: 250px;
+  height: 65px;
   margin-bottom: 0px;
   font-size: 14px;
   padding-left: 10px;
@@ -12,7 +15,7 @@ const StyledDiskUsage = styled.div`
   bottom: 0;
   p > span {
     display: inline-block;
-    vertical-align: middle;
+    vertical-align: text-top;
     font-size: 16px;
   }
 `;
@@ -22,7 +25,9 @@ export default function DiskUsage() {
   return (
     <StyledDiskUsage>
       {isLoading ? (
-        <>Loading</>
+        <div style={{ margin: "auto" }}>
+          <Spinner fontSize={20} />
+        </div>
       ) : error ? (
         <>Error</>
       ) : (
@@ -33,7 +38,7 @@ export default function DiskUsage() {
           <label htmlFor="progress">{`${(
             (data.size - data.free) /
             (1024 * 1024 * 1024)
-          ).toFixed(1)}GB/${(data.size / (1024 * 1024 * 1024)).toFixed(
+          ).toFixed(1)}GB / ${(data.size / (1024 * 1024 * 1024)).toFixed(
             1
           )}GB`}</label>
           <progress
