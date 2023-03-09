@@ -23,7 +23,7 @@ export default async function handler(
   const pathArray = req.query.slug as undefined | string[];
   const basicPath = process.env.BASIC_PATH;
   const nginxServeAddress = process.env.NGINX_SERVE_ADDRESS;
-  await new Promise((r) => setTimeout(r, 500));
+  await new Promise((r) => setTimeout(r, 200));
   try {
     const isDirectory = !pathArray
       ? (await lstat(basicPath)).isDirectory()
