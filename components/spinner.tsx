@@ -1,9 +1,10 @@
 import { FcSynchronize } from "react-icons/fc";
 import styled from "styled-components";
 
-const StyledSpinner = styled.span`
+const StyledSpinner = styled.span<{ fontSize?: number }>`
   display: inline-block;
   vertical-align: middle;
+  font-size: ${(props) => props.fontSize + "px"};
   svg {
     animation: rotation 2s linear infinite;
     @keyframes rotation {
@@ -17,9 +18,9 @@ const StyledSpinner = styled.span`
   }
 `;
 
-export default function Spinner() {
+export default function Spinner(props: { fontSize?: number }) {
   return (
-    <StyledSpinner>
+    <StyledSpinner fontSize={props.fontSize}>
       <FcSynchronize />
     </StyledSpinner>
   );
