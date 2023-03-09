@@ -29,7 +29,7 @@ export default function App({ Component, pageProps }: AppProps) {
               value={{
                 refreshInterval: 50000,
                 fetcher: fetcher,
-                revalidateOnFocus: false,
+                revalidateOnFocus: true,
               }}
             >
               <Component {...pageProps} />
