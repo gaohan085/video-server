@@ -19,7 +19,7 @@ export const FileElem: React.FC = (props: DirChildElem) => {
         <span>
           <FcVideoFile />
         </span>
-        {props.name}
+        {props.name.toUpperCase()}
       </p>
     </div>
   );
@@ -45,7 +45,7 @@ export const FolderElem: React.FC = (props: DirChildElem) => {
         ) : (
           <span>{isOpen ? <FcOpenedFolder /> : <FcFolder />}</span>
         )}
-        {props.name}
+        {props.name.toUpperCase()}
       </p>
       {error ? (
         <>{"Error Fetch Data"}</>
