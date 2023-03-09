@@ -28,7 +28,7 @@ export const FileElem: React.FC = (props: DirChildElem) => {
 export const FolderElem: React.FC = (props: DirChildElem) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [shouldFetch, setShouldFetch] = useState<boolean>(false);
-  const { data, isLoading, error } = useSWR<Folder, Error>(
+  let { data, isLoading, error } = useSWR<Folder, Error>(
     shouldFetch ? "/api/" + props.currentPath + props.name : null
   );
 

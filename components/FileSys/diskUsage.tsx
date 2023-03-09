@@ -4,15 +4,16 @@ import styled from "styled-components";
 import useSWR from "swr";
 
 const StyledDiskUsage = styled.div`
-  width: 280px;
+  width: 250px;
   margin-bottom: 0px;
-  font-size: 15px;
+  font-size: 14px;
   padding-left: 10px;
   position: absolute;
   bottom: 0;
   p > span {
     display: inline-block;
     vertical-align: middle;
+    font-size: 16px;
   }
 `;
 
