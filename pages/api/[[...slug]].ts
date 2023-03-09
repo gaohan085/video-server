@@ -20,6 +20,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Folder | string>
 ) {
+  console.log(__dirname);
   const pathArray = req.query.slug as undefined | string[];
   const basicPath = process.env.BASIC_PATH;
   const nginxServeAddress = process.env.NGINX_SERVE_ADDRESS;
