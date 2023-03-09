@@ -17,7 +17,6 @@ const theme: DefaultTheme = {
 const myfont = localFont({
   src: "../public/Roboto-Regular.ttf",
 });
-
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>

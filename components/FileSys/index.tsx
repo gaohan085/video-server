@@ -1,10 +1,11 @@
 import DiskUsage from "./diskUsage";
 import { fetcher } from "../../src/hooks";
+import Spinner from "../spinner";
 import styled from "styled-components";
 import useSWR from "swr";
 import type { DirChildElem, Folder } from "../../pages/api/[[...slug]]";
 import { FcFolder, FcOpenedFolder, FcVideoFile } from "react-icons/fc";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { setPlaySrc, useAppDispatch } from "../../src/store";
 
 export const FileElem: React.FC = (props: DirChildElem) => {
@@ -27,34 +28,34 @@ export const FileElem: React.FC = (props: DirChildElem) => {
 
 export const FolderElem: React.FC = (props: DirChildElem) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [childNode, setChildNode] = useState<Folder | string | undefined>();
+  const [shouldFetch, setShouldFetch] = useState<boolean>(false);
+  const { data, isLoading, error } = useSWR<Folder, Error>(
+    shouldFetch ? "/api/" + props.currentPath + props.name : null
+  );
 
-  useEffect(() => {
-    if (isOpen) {
-      fetcher<Folder>("/api/" + props.currentPath + props.name)
-        .then((data) => setChildNode(data))
-        .catch(() => setChildNode("ERROR GET DATA."));
-    } else {
-      setChildNode(undefined);
-    }
-  }, [isOpen, props.currentPath, props.name]);
-
-  const handleClick = () => {
-    setIsOpen((isOpen) => !isOpen);
+  const handleClick = (): void => {
+    setIsOpen(!isOpen);
+    setShouldFetch(!shouldFetch);
   };
 
   return (
     <div className="folder">
       <p onClick={handleClick}>
-        <span>{isOpen ? <FcOpenedFolder /> : <FcFolder />}</span>
+        {isLoading ? (
+          <Spinner />
+        ) : (
+          <span>{isOpen ? <FcOpenedFolder /> : <FcFolder />}</span>
+        )}
         {props.name}
       </p>
-      {!childNode ? (
+      {error ? (
+        <>{"Error Fetch Data"}</>
+      ) : isLoading ? (
         <></>
-      ) : typeof childNode === "string" ? (
-        <p>{childNode}</p>
+      ) : !data ? (
+        <></>
       ) : (
-        <FileSys elems={childNode.childElem} />
+        <FileSys elems={data.childElem} />
       )}
     </div>
   );
