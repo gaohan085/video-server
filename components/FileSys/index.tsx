@@ -93,10 +93,17 @@ const StyledFileSysComp = styled.div`
     padding-left: 10px;
   }
   .folder > p {
+    padding: 0 5px;
+    border-radius: 4px;
+    width: fit-content;
     cursor: pointer;
-    margin-block-start: 0.15em;
-    margin-block-end: 0.15em;
+    margin-block-start: 0.25em;
+    margin-block-end: 0.25em;
     white-space: nowrap;
+    line-height: 14px;
+    :hover {
+      background-color: #f3f3f3;
+    }
   }
   .folder > p > span {
     display: inline-block;
@@ -109,10 +116,17 @@ const StyledFileSysComp = styled.div`
   }
 
   .file > p {
+    padding: 0 5px;
+    border-radius: 4px;
+    width: fit-content;
     cursor: pointer;
-    margin-block-start: 0.15em;
-    margin-block-end: 0.15em;
+    margin-block-start: 0.25em;
+    margin-block-end: 0.25em;
     white-space: nowrap;
+    line-height: 14px;
+    :hover {
+      background-color: #f3f3f3;
+    }
   }
 
   .file > p > span {
@@ -130,7 +144,7 @@ const SideBar = styled.div`
   color: #4096ff;
   width: 250px;
   margin-top: 18px;
-  padding-left: 10px;
+  padding-left: 5px;
   position: relative;
   top: 0;
   bottom: 0;
