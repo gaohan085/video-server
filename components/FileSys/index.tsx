@@ -86,6 +86,7 @@ const StyledFileSysComp = styled.div`
   color: #4096ff;
   margin-bottom: 70px;
   font-size: 14px;
+  min-height: 400px;
   .folder {
     display: flex;
     flex-direction: column;
@@ -145,7 +146,9 @@ const FileSysComp: React.FC = () => {
     <SideBar>
       <StyledFileSysComp>
         {isLoading ? (
-          <>Loading</>
+          <div style={{ margin: "auto" }}>
+            <Spinner fontSize={24} />
+          </div>
         ) : error ? (
           <>Error Get Data</>
         ) : (

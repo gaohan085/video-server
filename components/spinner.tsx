@@ -5,8 +5,9 @@ const StyledSpinner = styled.span<{ fontSize?: number }>`
   display: inline-block;
   vertical-align: middle;
   font-size: ${(props) => props.fontSize + "px"};
+  transform: rotateY(180deg);
   svg {
-    animation: rotation 2s linear infinite;
+    animation: rotation 1.5s linear infinite;
     @keyframes rotation {
       0% {
         transform: rotate(0deg);
