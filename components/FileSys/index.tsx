@@ -93,12 +93,12 @@ const StyledFileSysComp = styled.div`
     padding-left: 10px;
   }
   .folder > p {
-    padding: 0 5px;
+    padding: 2px 5px;
     border-radius: 4px;
     width: fit-content;
     cursor: pointer;
-    margin-block-start: 0.25em;
-    margin-block-end: 0.25em;
+    margin-block-start: 0.1em;
+    margin-block-end: 0.1em;
     white-space: nowrap;
     line-height: 14px;
     :hover {
@@ -116,12 +116,12 @@ const StyledFileSysComp = styled.div`
   }
 
   .file > p {
-    padding: 0 5px;
+    padding: 2px 5px;
     border-radius: 4px;
     width: fit-content;
     cursor: pointer;
-    margin-block-start: 0.25em;
-    margin-block-end: 0.25em;
+    margin-block-start: 0.1em;
+    margin-block-end: 0.1em;
     white-space: nowrap;
     line-height: 14px;
     :hover {
