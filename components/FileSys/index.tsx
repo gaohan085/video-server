@@ -76,7 +76,6 @@ export const FileSys = (props: { elems: DirChildElem[] }) => {
 };
 
 /** CSS start */
-
 const StyledFileSysComp = styled.div`
   display: flex;
   flex-direction: column;
@@ -92,10 +91,18 @@ const StyledFileSysComp = styled.div`
     padding-left: 10px;
   }
   .folder > p {
+    padding: 2px 5px;
+    border-radius: 4px;
+    width: fit-content;
     cursor: pointer;
-    margin-block-start: 0.15em;
-    margin-block-end: 0.15em;
+    margin-block-start: 0.1em;
+    margin-block-end: 0.1em;
     white-space: nowrap;
+    line-height: 14px;
+    user-select: none;
+    :hover {
+      background-color: #f3f3f3;
+    }
   }
   .folder > p > span {
     display: inline-block;
@@ -108,10 +115,18 @@ const StyledFileSysComp = styled.div`
   }
 
   .file > p {
+    padding: 2px 5px;
+    border-radius: 4px;
+    width: fit-content;
     cursor: pointer;
-    margin-block-start: 0.15em;
-    margin-block-end: 0.15em;
+    margin-block-start: 0.1em;
+    margin-block-end: 0.1em;
     white-space: nowrap;
+    line-height: 14px;
+    user-select: none;
+    :hover {
+      background-color: #f3f3f3;
+    }
   }
 
   .file > p > span {
