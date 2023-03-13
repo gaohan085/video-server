@@ -1,4 +1,4 @@
-import FileSysComp from "../components/FileSys/index";
+import FileSysComp from "../components/FileSys";
 import Head from "next/head";
 import Player from "../components/plyr";
 import StatusBar from "../components/statusBar";
