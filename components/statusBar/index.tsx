@@ -44,10 +44,18 @@ const DiskUsage = () => {
 };
 
 const GitCommit = () => {
-  const { data, error } = useSWR<string, Error>("/api/git");
+  const { data, isLoading, error } = useSWR<string, Error>("/api/git");
   return (
     <>
-      <p>{error ? <>{"Error"}</> : <>{`Git commit: ${data}`}</>}</p>
+      <p>
+        {isLoading ? (
+          <></>
+        ) : error ? (
+          <>{"Error"}</>
+        ) : (
+          <>{`Git commit: ${data}`}</>
+        )}
+      </p>
     </>
   );
 };
