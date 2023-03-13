@@ -1,17 +1,23 @@
 import FileSysComp from "../components/FileSys/index";
 import Head from "next/head";
 import Player from "../components/plyr";
+import StatusBar from "../components/statusBar";
 import styled from "styled-components";
 import { selectPlaySrc, useAppSelector } from "../src/store";
 
 const Layout = styled.div`
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: center;
+  color: #4096ff;
+  .main {
+    position: absolute;
+    top: 0;
+    bottom: 22px;
+    left: 0;
+    right: 0;
+    padding: 0px;
+    height: inherit;
+    display: flex;
+    justify-content: center;
+  }
 `;
 
 export default function Index() {
@@ -23,8 +29,11 @@ export default function Index() {
         <title>{title}</title>
       </Head>
       <Layout>
-        <Player />
-        <FileSysComp />
+        <div className="main">
+          <Player />
+          <FileSysComp />
+        </div>
+        <StatusBar />
       </Layout>
     </>
   );

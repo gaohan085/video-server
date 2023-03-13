@@ -1,4 +1,3 @@
-import DiskUsage from "./diskUsage";
 import Spinner from "../spinner";
 import styled from "styled-components";
 import useSWR from "swr";
@@ -136,7 +135,6 @@ const SideBar = styled.div`
   bottom: 0;
   border-left: 1px solid #d3d3d3;
 `;
-
 /** CSS end */
 
 const FileSysComp: React.FC = () => {
@@ -157,7 +155,6 @@ const FileSysComp: React.FC = () => {
           </>
         )}
       </StyledFileSysComp>
-      <DiskUsage />
     </SideBar>
   );
 };
