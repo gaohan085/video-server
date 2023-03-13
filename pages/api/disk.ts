@@ -3,9 +3,15 @@ import { NextApiRequest, NextApiResponse } from "next";
 
 export default async function diskFreeSpace(
   req: NextApiRequest,
-  res: NextApiResponse<DiskSpace>
+  res: NextApiResponse<DiskSpace | string>
 ) {
   const path = process.env.BASIC_PATH;
-  await new Promise((r) => setTimeout(r, 200));
-  res.json(await checkDiskSpace(path));
+  switch (req.method) {
+    case "GET":
+      res.json(await checkDiskSpace(path));
+      break;
+
+    default:
+      res.status(404).json("Not Found");
+  }
 }
