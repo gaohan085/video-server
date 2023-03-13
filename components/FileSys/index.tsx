@@ -101,6 +101,7 @@ const StyledFileSysComp = styled.div`
     margin-block-end: 0.1em;
     white-space: nowrap;
     line-height: 14px;
+    user-select: none;
     :hover {
       background-color: #f3f3f3;
     }
@@ -124,6 +125,7 @@ const StyledFileSysComp = styled.div`
     margin-block-end: 0.1em;
     white-space: nowrap;
     line-height: 14px;
+    user-select: none;
     :hover {
       background-color: #f3f3f3;
     }
